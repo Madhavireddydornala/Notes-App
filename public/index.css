@@ -1,0 +1,411 @@
+body, html,* {
+    margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .child1{
+    width: 20%;
+  }
+
+  .child2{
+
+    width: 80%;
+  }
+  .sidebar {
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+  }
+  
+  .sidebar-heading {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 20px;
+    overflow: auto;
+  }
+  
+
+  .initials-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes the container round */
+    
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px; /* Space between initials and item text */
+  }
+  .logo{
+    width:60px;
+    position: fixed;
+    bottom: 40px;
+    left: 200px;
+
+  }
+ 
+  .main{
+   padding: 40px;
+   text-align: center;
+   background-color: #DAE5F5;
+   height: 100vh; 
+  }
+
+  .main .notes{
+    margin-bottom: 20px;
+  }
+
+  .para{
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: black;
+  }
+  
+  
+  
+  .model{
+    font-size: 20px;
+    font-weight: bold;
+    
+  }
+  .button {
+    background-color:#16008B;
+    border: none;
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+
+    
+  }
+
+  .color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 10px;
+    
+ 
+}
+
+.dot{
+  display: flex;
+  flex-direction: row;
+    margin-bottom: 20px; 
+  
+}
+
+
+
+/* .model {
+  width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  z-index: 2001
+} */
+
+.header {
+  background-color: #6200ea;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+.content {
+  padding: 15px;
+  color: #333;
+  text-align: justify;
+}
+
+.footer {
+  background-color: #f4f4f9;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Light black background */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Make sure the overlay is below the modal */
+}
+
+.model {
+  width: 600px;
+  max-width: 90%; /* Make it responsive for smaller screens */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  z-index: 2001; /* Ensure modal appears above the overlay */
+  position: relative;
+}
+
+.overlay:target {
+  display: flex; /* Show when targeted */
+}
+
+.group{
+  padding: 10px;
+}
+.input-group{
+  display: flex;
+  margin-bottom: 20px;
+}
+.text-group{
+  width: 500px;
+}
+
+.groupName{
+  width: 250px;
+  margin-top: 16px;
+}
+.color{
+  width: 150px;
+}
+
+.create-btn{
+  float: right;
+}
+
+.close-btn {
+ 
+  /* top: 50%; */
+  transform: translateY(-50%);
+  text-decoration: none;
+  font-size: 1.5em;
+  color: black;
+  float: right;
+}
+
+
+
+
+input[type="text"] {
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  
+  
+}
+
+.group-info {
+  display: flex;
+  align-items: center; /* Align items vertically in the middle */
+  justify-content: flex-start; /* Align items horizontally */
+  position: fixed; /* Make the position fixed */
+  top: 0; /* Fix it to the top of the viewport */
+  left: 300px; /* Distance from the left */
+  background-color: #001f8b; /* Background color */
+  width: 80%; /* Full width with padding */
+  color: white; /* Text color */
+  height: 70px; /* Fixed height */
+  padding: 0 20px; /* Inner spacing */
+  box-sizing: border-box; /* Include padding in width and height calculations */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Footer container */
+/* .footers {
+  position: sticky;
+  z-index: 1000;
+  overflow: auto;
+} */
+
+/* Image styling */
+.image3 {
+  width: 30px;
+  height: 30px;
+  transition: filter 0.3s ease, pointer-events 0.3s ease;
+  position: fixed;
+  top:650px;
+  left:90rem;
+  cursor: pointer;
+}
+
+.image3.disabled {
+  filter: brightness(20%) grayscale(10%); /* Make the image appear white */
+  pointer-events: none; /* Disables interactions */
+}
+
+.image3.active {
+  filter: none;
+  pointer-events: auto;
+}
+
+/* Textarea and form styles */
+.cont {
+  border-radius: 10px;
+    position: fixed;
+    border: 30px solid #001F8B;
+    height: 200px;
+    width:77rem;
+    top: 540px;
+    right: 35px;
+    left: 300px;
+  
+}
+
+textarea {
+  height: 150px;
+  padding: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 100%; /* Ensure it takes up the full width inside the container */
+  margin: 0;
+  border: none;
+}
+
+/* 
+.messages {
+  position: fixed;
+  left: 21%;
+  top: 10%;
+  width: 78%;
+  height: 80%; 
+  margin: 10px auto;
+  box-sizing: border-box;
+  overflow: auto; 
+  max-height: calc(100% - 20%);
+}
+
+.message {
+  background-color: white;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 20px;
+  letter-spacing: 0.1em;
+}
+
+.timestamp{
+  float: right;
+  font-size: 15px;
+  font-weight: 600;
+} */
+
+.messages {
+  position: fixed;
+  left: 21%;
+  top: 10%;
+  width: 78%;
+  height: calc(100% - 150px); /* Leave space for the footer or input area */
+  margin: 10px auto;
+  box-sizing: border-box;
+  overflow-y: auto; /* Vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scroll */
+  padding-bottom: 10px; /* Ensure space at the bottom */
+  border-radius: 10px; /* Optional styling */
+}
+
+.message {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  letter-spacing: 0.1em;
+  word-wrap: break-word; /* Ensure long messages don't overflow */
+}
+
+.timestamp {
+  float: right;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footers {
+  position: fixed;
+  bottom: 0; /* Stick the footer to the bottom */
+  left: 21%; /* Align with the messages */
+  width: 78%; /* Align with the messages */
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+  display: flex;
+  align-items: center;
+}
+
+.cont textarea {
+  width: 100%; /* Fill available width */
+  resize: none; /* Prevent resizing */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.image3 {
+  margin-left: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.image3.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* Disable click */
+}
+
+.image3.active {
+  opacity: 1;
+  pointer-events: auto; /* Enable click */
+}
