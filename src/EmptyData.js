@@ -1,6 +1,5 @@
 import React from "react";
 import image1 from './images/image1.1.png';
-import Footer from './Footer';
 
 const EmptyData = (selectedGroup) => {
     return(

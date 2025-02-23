@@ -67,9 +67,10 @@ const GroupModel = ({ addGroup, setShowModal, existingGroups }) => {
       <div className="model">
         <div className="group">
           Create New Group
-          <a href="#" className="close-btn" onClick={() => setShowModal(false)}>
-            &times;
-          </a>
+          <button type="button" className="close-btn" onClick={() => setShowModal(false)}>
+  &times;
+</button>
+
         </div>
         <div className="content">
           <form onSubmit={(e) => e.preventDefault()}>

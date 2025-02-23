@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import image2 from "./images/image 1.2.png";
 import GroupModel from "./GroupModel";
-import Header from "./Header"; // Import Header directly here
+import Header from "./Header";
 import Footer from "./Footer";
 
 const SideBar = () => {
@@ -17,11 +17,12 @@ const SideBar = () => {
     }
   }, []);
 
+  // Automatically select the first group when groups change
   useEffect(() => {
     if (groups.length > 0 && !selectedGroup) {
       setSelectedGroup(groups[0]); // Set first group as selected
     }
-  }, [groups]);
+  }, [groups]); // Removed 'selectedGroup' from dependencies to avoid unnecessary re-renders
 
   // Function to add a new group
   const addGroup = (groupName, color, initials) => {
@@ -30,7 +31,7 @@ const SideBar = () => {
     );
 
     if (!groupExists) {
-      const newGroups = [...groups, { name: groupName, color, initials, message: [] }];
+      const newGroups = [...groups, { name: groupName, color, initials, messages: [] }];
       setGroups(newGroups);
       localStorage.setItem("groups", JSON.stringify(newGroups)); // Save to Local Storage
     }
@@ -38,7 +39,7 @@ const SideBar = () => {
 
   return (
     <>
-      {/* Render the Header directly inside Sidebar */}
+      {/* Render the Header */}
       <Header selectedGroup={selectedGroup} />
 
       {/* Sidebar */}
@@ -46,7 +47,11 @@ const SideBar = () => {
         <h2 className="sidebar-heading">Pocket Notes</h2>
         <ul className="sidebar-list">
           {groups.map((group, index) => (
-            <li key={index} onClick={() => setSelectedGroup(group)}>
+            <li 
+              key={index} 
+              onClick={() => setSelectedGroup(group)}
+              className={selectedGroup?.name === group.name ? "selected-group" : ""}
+            >
               <div
                 className="initials-container"
                 style={{ backgroundColor: group.color }}
@@ -57,16 +62,14 @@ const SideBar = () => {
             </li>
           ))}
         </ul>
-        <a
-          href="#modelOverlay"
-          className="open-btn"
-          onClick={() => setShowModal(true)}
-        >
+
+        {/* Button to Open GroupModel Modal */}
+        <button className="open-btn" onClick={() => setShowModal(true)}>
           <img src={image2} alt="Add Group" className="logo" />
-        </a>
+        </button>
       </div>
 
-      {/* Modal for creating a new group */}
+      {/* Modal for Creating a New Group */}
       {showModal && (
         <GroupModel
           addGroup={addGroup}
@@ -75,14 +78,8 @@ const SideBar = () => {
         />
       )}
 
-      {selectedGroup && (
-        <Footer selectedGroup={selectedGroup} />
-      )}
-
-
-
-
-
+      {/* Footer with Selected Group */}
+      {selectedGroup && <Footer selectedGroup={selectedGroup} />}
     </>
   );
 };
